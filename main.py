@@ -94,7 +94,7 @@ def main(**kwargs):
         st.session_state.messages = []
         initial_message = "Hola, ¿en qué puedo ayudarte hoy?"
         st.session_state.messages.append({"role": "assistant", "content": initial_message})
-        logger.info(f"BOT: {initial_message}")  # log initial message from assistant
+        logger.info(f"[id:{st.session_state.session_id}] BOT: {initial_message}")  # log initial message from assistant
 
     # conversation
     for message in st.session_state.messages:
@@ -104,7 +104,7 @@ def main(**kwargs):
 
     # user input
     if prompt_input := st.chat_input("Hacé tu pregunta"):
-        logger.info(f"PROMPT: {prompt_input}")  # log user prompt
+        logger.info(f"[id:{st.session_state.session_id}] PROMPT: {prompt_input}")  # log user prompt
         st.session_state.messages.append({"role": "user", "content": prompt_input})
         with st.chat_message("user", avatar=USER_AVATAR):
             st.markdown(get_chat_message(prompt_input), unsafe_allow_html=True)
@@ -116,7 +116,7 @@ def main(**kwargs):
             context = '\n'.join([retrived_from_vdb[i][0].page_content for i in range(k)])
             response = build_prompt(context, prompt_input)
             response = st.write_stream(response)  # write text into the screen by stream (like a chat)
-            logger.info(f"BOT: {response}")  # log assistant response
+            logger.info(f"[id:{st.session_state.session_id}] BOT: {response}")  # log assistant response
         st.session_state.messages.append({"role": "assistant", "content": response})
 
     # Call the function to push logs to GitHub if timeout is reached
@@ -127,7 +127,7 @@ def main(**kwargs):
             if len(lines) > st.session_state.num_lines:
                 st.session_state.num_lines = len(lines)
                 today = datetime.now().strftime("%Y-%m-%d")
-                subject = f"BETA chat: Q&A - [id:{st.session_state.session_id}] " + today
+                subject = f"BETA chat: Q&A " + today
                 body = ''.join(lines)
                 send_email(FROM_EMAIL, TO_EMAIL, PASSWORD, subject, body) # send email with logs
         file.close()
