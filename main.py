@@ -34,7 +34,7 @@ def main(**kwargs):
     #    st.session_state.session_id = get_remote_ip()
     #    st.session_state.last_active = time.time()
     
-    if 'user_id' not in st.session_state:
+    if 'session_id' not in st.session_state:
         st.session_state.session_id = str(uuid.uuid4())
         st.session_state.last_active = time.time()
     
