@@ -1,5 +1,5 @@
 import os, sys, re, time
-import pysqlite3, time
+import pysqlite3, time, uuid
 import streamlit as st
 from datetime import datetime
 from langchain_community.vectorstores import Chroma
@@ -30,8 +30,12 @@ def main(**kwargs):
     logger = kwargs.get("logger")
     
     # Track session with a unique ID and last active time
-    if 'session_id' not in st.session_state:
-        st.session_state.session_id = get_remote_ip()
+    #if 'session_id' not in st.session_state:
+    #    st.session_state.session_id = get_remote_ip()
+    #    st.session_state.last_active = time.time()
+    
+    if 'user_id' not in st.session_state:
+        st.session_state.session_id = str(uuid.uuid4())
         st.session_state.last_active = time.time()
     
     if 'num_lines' not in st.session_state:
