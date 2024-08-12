@@ -63,31 +63,6 @@ def main(**kwargs):
                     </style>
                     """
 
-    st.markdown(
-        """
-        <style>
-        .reportview-container {
-            background: #FFFFFF; /* Background color of the whole app */
-        }
-        .stTextInput label {
-            color: #000000; /* Label color */
-        }
-        .stTextInput input {
-            background-color: #FFFFFF; /* Input box background color */
-            color: #000000; /* Input box text color */
-            border: 2px solid #007bff; /* Input box border color */
-            border-radius: 10px; /* Input box border radius */
-        }
-        .stButton button {
-            background-color: #007bff; /* Button background color */
-            color: white; /* Button text color */
-            border-radius: 10px; /* Button border radius */
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
     st.html(
     """
         <style>    
