@@ -136,7 +136,7 @@ def main(**kwargs):
             retrived_from_vdb = smalldb.similarity_search_with_score(prompt_input, k=k)
             context = '\n'.join([retrived_from_vdb[i][0].page_content for i in range(k)])
             response = build_prompt(context, prompt_input)
-            response = st.write_stream(response)  # write text into the screen by stream (like a chat)
+            response = st.write_stream(f"<span style='color:red'>{response}</span>")  # write text into the screen by stream (like a chat)
             logger.info(f"BOT: {response}")  # log assistant response
         st.session_state.messages.append({"role": "assistant", "content": response})
 
