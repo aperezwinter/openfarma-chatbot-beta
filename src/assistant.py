@@ -132,12 +132,13 @@ def init_logging(log_file: str):
     logger.propagate = False
     logger.setLevel(logging.DEBUG)
     # in the formatter, use the variable "user_ip"
-    format_msg = '%(asctime)s - [user_ip=%(user_ip)s] - %(message)s'
+    # format_msg = '%(asctime)s - [user_ip=%(user_ip)s] - %(message)s'
+    format_msg = '%(asctime)s - %(message)s'
     format_time = "%Y-%m-%d %H:%M:%S"
     formatter = logging.Formatter(format_msg, format_time)
     handler = logging.FileHandler(log_file)
     handler.setLevel(logging.DEBUG)
-    handler.addFilter(ContextFilter())
+    # handler.addFilter(ContextFilter())
     handler.setFormatter(formatter)
     logger.addHandler(handler)
     return logger
