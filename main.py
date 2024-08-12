@@ -123,7 +123,7 @@ def main(**kwargs):
             if len(lines) > st.session_state.num_lines:
                 st.session_state.num_lines = len(lines)
                 today = datetime.now().strftime("%Y-%m-%d")
-                subject = "Q&A chat " + today
+                subject = "BETA chat: Q&A " + today
                 body = ''.join(lines)
                 send_email(FROM_EMAIL, TO_EMAIL, PASSWORD, subject, body) # send email with logs
         file.close()
