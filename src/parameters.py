@@ -1,0 +1,1 @@
+TIMEOUT = 60                        # send email timeout in seconds
