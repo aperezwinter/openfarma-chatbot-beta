@@ -50,11 +50,9 @@ def main(**kwargs):
     # Streamlit app configuration
     header = "Asistente Virtual de Cosmética"
     image_logo = "figures/logo_openfarma.svg"
-    footnote = """Asistente virtual especializado en productos de cosmética. \
-                Diseñado para desarrollar conversaciones con el usuario, el \
-                chatbot proveé información a pedido sobre productos de cosmetica, \
-                provenientes de marcas como: Cepage, Cetaphil, Eucerin, Eximia, \
-                Isdin, La Roche-Posay, L'Oreal, Revlon, Vichy."""
+    footnote = """Soy un asistente virtual especializado en dermocosmética. \
+        Podré brindarte información sobre productos, modo de uso, sus beneficios \
+            e ingredientes."""
     footnote = re.sub(' +', ' ', footnote)
     hide_streamlit_style = """
                     <style>
@@ -81,13 +79,13 @@ def main(**kwargs):
 
     st.markdown(hide_streamlit_style, unsafe_allow_html=True)
     st.markdown(f"""<h1 style="color:{OLIVE}; position:absolute; top:-70px;"> {header} </h1>""", unsafe_allow_html=True)
-    left, right = st.columns([1.2, 7.0])
-    with left:
-        st.markdown(f'<p class="powered-by" style="color: {BLACK}; font-weight: bold;"> Powered by</p>', unsafe_allow_html=True)
-    with right:
-        st.image(image_logo, width=150)
-    st.markdown(get_chat_message(footnote, bold=True), unsafe_allow_html=True)
-    set_background('figures/watermark_spaced.jpg')
+    #left, right = st.columns([1.2, 7.0])
+    #with left:
+    #    st.markdown(f'<p class="powered-by" style="color: {BLACK}; font-weight: bold;"> Powered by</p>', unsafe_allow_html=True)
+    #with right:
+    #    st.image(image_logo, width=150)
+    #st.markdown(get_chat_message(footnote, bold=True), unsafe_allow_html=True)
+    # set_background('figures/watermark_spaced.jpg')
 
     # session state
     if "messages" not in st.session_state:
