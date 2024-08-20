@@ -48,7 +48,7 @@ def main(**kwargs):
     smalldb = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=embedding)
 
     # Streamlit app configuration
-    header = "Asistente Virtual de Cosmética"
+    header = "openfarmAI"
     image_logo = "figures/logo_openfarma.svg"
     footnote = """Soy un asistente virtual especializado en dermocosmética. \
         Podré brindarte información sobre productos, modo de uso, sus beneficios \
@@ -84,7 +84,7 @@ def main(**kwargs):
     #    st.markdown(f'<p class="powered-by" style="color: {BLACK}; font-weight: bold;"> Powered by</p>', unsafe_allow_html=True)
     #with right:
     #    st.image(image_logo, width=150)
-    #st.markdown(get_chat_message(footnote, bold=True), unsafe_allow_html=True)
+    st.markdown(get_chat_message(footnote), unsafe_allow_html=True)
     # set_background('figures/watermark_spaced.jpg')
 
     # session state
