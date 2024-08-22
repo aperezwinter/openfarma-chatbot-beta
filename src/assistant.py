@@ -1,44 +1,14 @@
-import os, re, time, logging
-import base64, subprocess, smtplib
+import io, re, time, logging
+import base64, smtplib
 import streamlit as st
+from PIL import Image
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from streamlit import runtime
 from streamlit.runtime.scriptrunner import get_script_run_ctx
 from langchain_core.output_parsers import StrOutputParser
 from langchain_openai.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
-
-# Define some global variables
-PERSIST_DIRECTORY   = "database/DB_Chroma"          # embedding database directory
-MODEL               = "gpt-4o"                      # "gpt-4o", "gpt-3.5-turbo" set the model to use
-OPENAI_API_KEY      = st.secrets["OPENAI_API_KEY"]  # OpenAI API key
-USER_AVATAR         = "figures/user_icon.png"
-BOT_AVATAR          = "figures/ai_icon.png"
-
-# HTML color codes
-GREEN   = "#8EA749"
-ORANGE  = "#FF5733"
-BLACK   = "#000000"
-WHITE   = "#FFFFFF"
-RED     = "#FF0000"
-OLIVE   = "#8EA749"
-
-def get_chat_message(content, color=BLACK, bold=False):
-    if bold:
-        return f"""
-            <div style="display: flex; align-items: center; margin-bottom: 20px;">
-            <div style="background-color: {WHITE}; padding: 10px; border-radius: 10px;">
-            <p style="margin: 0; color: {color}; font-weight: bold;"> {content}</p>
-            </div>
-            </div>"""
-    else:
-        return f"""
-            <div style="display: flex; align-items: center; margin-bottom: 20px;">
-            <div style="background-color: {WHITE}; padding: 10px; border-radius: 10px;">
-            <p style="margin: 0; color: {color};"> {content}</p>
-            </div>
-            </div>"""
+from src.parameters import *
 
 def get_base64(bin_file):
     with open(bin_file, 'rb') as f:
@@ -60,29 +30,6 @@ def set_background(png_file):
     ''' % bin_str
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-def response_stream(response):
-    for line in response.splitlines():
-        for word in line.split():
-            yield f"**{word}**" + " "
-            time.sleep(0.05)  # time processing delay
-        yield "\n"  # add a new line after each line
-
-def split_string_to_lines(input_string, line_length):
-    words = input_string.split()
-    lines = []
-    current_line = ""
-    
-    for word in words:
-        if len(current_line) + len(word) + 1 <= line_length:
-            current_line += (word + " ")
-        else:
-            lines.append(current_line.strip())
-            current_line = word + " "
-    if current_line:
-        lines.append(current_line.strip())
-    
-    return "\n".join(lines)
-
 def build_prompt(context, question):
     parser = StrOutputParser()
     template = """ROL: Analista asistente experto en cosmética.\n\
@@ -96,60 +43,34 @@ def build_prompt(context, question):
     template = re.sub(' +', ' ', template)
     prompt = ChatPromptTemplate.from_template(template)
     chain = prompt | ChatOpenAI(openai_api_key=OPENAI_API_KEY, model=MODEL) | parser
-    #return chain.invoke({"context": context, "question": question})
-    #return chain.stream({"chat_history": context, "user_question": question})
-    return chain.stream({"context": context, "question": question})
-
-def get_remote_ip() -> str:
-    """Get remote ip."""
-    try:
-        ctx = get_script_run_ctx()
-        if ctx is None:
-            return None
-        session_info = runtime.get_instance().get_client(ctx.session_id)
-        if session_info is None:
-            return None
-    except Exception as e:
-        return None
-
-    return session_info.request.remote_ip
-
-class ContextFilter(logging.Filter):
-    def filter(self, record):
-        # record.user_ip = get_remote_ip()
-        record.user_ip = st.session_state.session_id
-        return super().filter(record)
+    return chain.invoke({"context": context, "question": question})
+    #return chain.stream({"context": context, "question": question})
 
 def init_logging(log_file: str):
-    # Make sure to instanciate the logger only once
-    # otherwise, it will create a StreamHandler at every run
-    # and duplicate the messages
-
-    # create a custom logger
     logger = logging.getLogger(__name__)
     if logger.handlers:  # logger is already setup, don't setup again
         return logger
     logger.propagate = False
     logger.setLevel(logging.DEBUG)
-    # in the formatter, use the variable "user_ip"
-    # format_msg = '%(asctime)s - [user_ip=%(user_ip)s] - %(message)s'
     format_msg = '%(asctime)s - %(message)s'
     format_time = "%Y-%m-%d %H:%M:%S"
     formatter = logging.Formatter(format_msg, format_time)
     handler = logging.FileHandler(log_file)
     handler.setLevel(logging.DEBUG)
-    # handler.addFilter(ContextFilter())
     handler.setFormatter(formatter)
     logger.addHandler(handler)
     return logger
 
-# Function to push log to GitHub
-def push_log_to_github(file_name: str, repo_path: str, commit_message: str="update log file"):
-    os.chdir(repo_path)
-    subprocess.run(["git", "add", file_name]) # stage the log files
-    subprocess.run(["git", "commit", "-m", commit_message]) # commit the log file
-    subprocess.run(["git", "push", "origin", "main"]) # push to the repo
-
+def stream_markdown(full_text, role, delay=0.005, chunk_size=1):
+    container = st.empty()
+    current_text = ""
+    for i in range(0, len(full_text), chunk_size):
+        current_text += full_text[i:i+chunk_size]
+        if role == "assistant":
+            container.markdown(f'<div class="chat-message bot-message">{current_text}</div>', unsafe_allow_html=True)
+        else:
+            container.markdown(f'<div class="chat-message user-message">{current_text}</div>', unsafe_allow_html=True)
+        time.sleep(delay)
 
 def send_email(from_email: str, to_email: str, password: str, subject: str, body: str) -> None:
     # Setup the MIME
@@ -171,3 +92,24 @@ def send_email(from_email: str, to_email: str, password: str, subject: str, body
         session.quit()
     except Exception as e:
         print(f"Failed to send email. Error: {e}")
+
+def custom_image(image_path, resize_factor: float=1.0):
+    img = Image.open(image_path)
+    width = int(img.size[0] * resize_factor)
+    height = int(img.size[1] * resize_factor)
+    img = img.resize((width, height))
+    return img
+
+# Function to encode the gif from base64
+def encode_gif(gif_path: str):
+    with open(gif_path, "rb") as f:
+        contents = f.read()
+        gif = base64.b64encode(contents).decode("utf-8")
+        f.close()
+    return gif
+
+# Function to encode the image to base64
+def encode_image(image):
+    buffered = io.BytesIO()
+    image.save(buffered, format="PNG")
+    return base64.b64encode(buffered.getvalue()).decode()
