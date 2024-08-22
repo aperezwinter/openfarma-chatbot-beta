@@ -1,5 +1,3 @@
-from src.parameters import BOT_BOX, USER_BOX
-
 streamlit_style = """
         <style>
         div[data-testid="stChatMessage"] {
@@ -14,7 +12,7 @@ streamlit_style = """
 
         /* Estilo específico para los mensajes del bot */
         .bot-message {
-            background-color: {BOT_BOX};
+            background-color: #F0F0F5;
             border-style: solid;
             border-color: black;
             border-width: 2px;
@@ -26,7 +24,7 @@ streamlit_style = """
 
         /* Estilo específico para los mensajes del usuario */
         .user-message {
-            background-color: {USER_BOX};
+            background-color: #E6FFE6;
             border-style: solid;
             border-color: black;
             border-width: 2px;
