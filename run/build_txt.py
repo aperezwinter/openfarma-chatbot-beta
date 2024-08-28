@@ -1,5 +1,5 @@
 from src.database import Cepage, Cetaphil, Eucerin, Eximia
-from src.database import Isdin, Loreal, Revlon, Vichy
+from src.database import Isdin, Loreal, Revlon, Vichy, LRP
 
 # products from cepage brand
 table_filepath = './database/tables/cepage.xlsx'
@@ -48,3 +48,9 @@ table_filepath = './database/tables/vichy.xlsx'
 txt_folderpath = './database/txt/'
 vichy = Vichy(filepath=table_filepath)
 vichy.to_txt(folderpath=txt_folderpath)
+
+# products from la roche posay brand
+table_filepath = './database/tables/lrp.xlsx'
+txt_folderpath = './database/txt/'
+lrp = LRP(filepath=table_filepath)
+lrp.to_txt(folderpath=txt_folderpath)

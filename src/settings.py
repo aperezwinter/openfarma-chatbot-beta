@@ -2,6 +2,7 @@ streamlit_style = """
         <style>
         div[data-testid="stChatMessage"] {
             background-color: white;
+            margin-bottom: -25px; /* Ajusta este valor para más o menos espacio */
         }
         div[data-testid="stToolbar"] {visibility: hidden; height: 0%; position: fixed;}
         div[data-testid="stDecoration"] {visibility: hidden; height: 0%; position: fixed;}
@@ -12,30 +13,34 @@ streamlit_style = """
 
         /* Estilo específico para los mensajes del bot */
         .bot-message {
-            background-color: #F0F0F5;
-            border-style: solid;
-            border-color: black;
-            border-width: 2px;
+            background-color: #FFFFFF;
+            border-style: dotted;
+            border-color: #8EA749;
+            border-width: 3px;
             border-radius: 10px;
             padding: 15px;
             color: black;
             margin-left: auto;  /* Alinea los mensajes del bot a la derecha */
+            position: relative;
+            top: -13.5px;  /* Ajusta la posición vertical de los mensajes del usuario */
         }
 
         /* Estilo específico para los mensajes del usuario */
         .user-message {
-            background-color: #E6FFE6;
-            border-style: solid;
-            border-color: black;
-            border-width: 2px;
+            background-color: #FFFFFF;
+            border-style: dotted;
+            border-color: #8EA749;
+            border-width: 3px;
             border-radius: 10px;
             padding: 15px;
             color: black;
             margin-right: auto;  /* Alinea los mensajes del usuario a la izquierda */
+            position: relative;
+            top: -13.5px;  /* Ajusta la posición vertical de los mensajes del usuario */
         }
 
         .main .block-container {
-            max-width: 60%;
+            max-width: 80%;
             padding-top: 2rem;
             padding-right: 1rem;
             padding-left: 1rem;
@@ -43,7 +48,7 @@ streamlit_style = """
         }
         
         .chat-container {
-            margin-top: 150px; /* Espacio para el header fijo */
+            margin-top: 40px; /* Espacio para el header fijo */
         }
         
         .fixed-header {
@@ -52,9 +57,8 @@ streamlit_style = """
             left: 0;
             width: 100%;
             z-index: 1000;
-            background-color: #F1F1F1;
+            background-color: #FFFFFF;
             padding: 10px 0;
-            box-shadow: 0 4px 2px -2px gray;
         }
         .header-content {
             display: flex;
@@ -69,8 +73,11 @@ streamlit_style = """
             max-width: 100%;
         }
         .header-caption {
-            width: 35%; /* Ajusta el ancho del caption */
-            margin: 10px 0 0 0;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            width: 50%;
+            margin: 60px auto 0 auto;
         }
         </style>
     """

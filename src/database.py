@@ -205,7 +205,12 @@ class Cepage(object):
             features_kustom.append(s)
         features = pd.Series(features_kustom)
         features = features.apply(lambda s: reduce_dots(s))
-
+        
+        # Reset index before building dataframe
+        name.reset_index(drop=True, inplace=True)
+        code.reset_index(drop=True, inplace=True)
+        features.reset_index(drop=True, inplace=True)
+        # Build unify dataframe
         dataframe = pd.DataFrame(data={'Producto':name, 'Código':code, 'Descripción':features})
         dataframe = dataframe.map(lambda s: reduce_dots(s))
 
@@ -229,6 +234,7 @@ class Cepage(object):
             for line in lines[:-1]:
                 f.write(line + '\n')
             f.write(lines[-1])
+        f.close()
     
     def to_sql(self, dbname:str, tablename:str):
         df = self.unify()
@@ -289,6 +295,11 @@ class Cetaphil(object):
         features = pd.Series(features_kustom)
         features = features.apply(lambda s: reduce_dots(s))
 
+        # Reset index before building dataframe
+        name.reset_index(drop=True, inplace=True)
+        code.reset_index(drop=True, inplace=True)
+        features.reset_index(drop=True, inplace=True)
+        # Build unify dataframe
         dataframe = pd.DataFrame(data={'Producto':name, 'Código':code, 'Descripción':features})
         dataframe = dataframe.map(lambda s: reduce_dots(s))
 
@@ -313,6 +324,7 @@ class Cetaphil(object):
             for line in lines[:-1]:
                 f.write(line + '\n')
             f.write(lines[-1])
+        f.close()
     
     def to_sql(self, dbname:str, tablename:str):
         df = self._prepare_to_llm()
@@ -376,6 +388,9 @@ class Eucerin(object):
         features = pd.Series(features_kustom)
         features = features.apply(lambda s: reduce_dots(s))
 
+        # Reset index before building dataframe
+        name.reset_index(drop=True, inplace=True)
+        features.reset_index(drop=True, inplace=True)
         # Build unify dataframe
         dataframe = pd.DataFrame(data={'Producto':name, 'Descripción':features})
         dataframe = dataframe.map(lambda s: reduce_dots(s))
@@ -428,6 +443,10 @@ class Eucerin(object):
         features = pd.Series(features_kustom)
         features = features.apply(lambda s: reduce_dots(s))
 
+        # Reset index before building dataframe
+        name.reset_index(drop=True, inplace=True)
+        code.reset_index(drop=True, inplace=True)
+        features.reset_index(drop=True, inplace=True)
         # Build unify dataframe
         dataframe = pd.DataFrame(data={'Producto':name, 'Código':code, 'Descripción':features})
         dataframe = dataframe.map(lambda s: reduce_dots(s))
@@ -451,6 +470,7 @@ class Eucerin(object):
             for line in lines[:-1]:
                 f.write(line + '\n')
             f.write(lines[-1])
+        f.close()
 
     def to_sql(self, dbname:str, tablename:str):
         df = self._prepare_to_llm()
@@ -535,6 +555,10 @@ class Eximia(object):
         features = pd.Series(features_kustom)
         features = features.apply(lambda s: reduce_dots(s))
 
+        # Reset index before building dataframe
+        name.reset_index(drop=True, inplace=True)
+        code.reset_index(drop=True, inplace=True)
+        features.reset_index(drop=True, inplace=True)
         # Build unify dataframe
         dataframe = pd.DataFrame(data={'Producto':name, 'Código':code, 'Descripción':features})
         dataframe = dataframe.map(str)
@@ -561,6 +585,7 @@ class Eximia(object):
             for line in lines[:-1]:
                 f.write(line + '\n')
             f.write(lines[-1])
+        f.close()
     
     def to_sql(self, dbname:str, tablename:str):
         df = self._prepare_to_llm()
@@ -629,6 +654,10 @@ class Isdin(object):
         features = pd.Series(features_kustom)
         features = features.apply(lambda s: reduce_dots(s))
 
+        # Reset index before building dataframe
+        name.reset_index(drop=True, inplace=True)
+        code.reset_index(drop=True, inplace=True)
+        features.reset_index(drop=True, inplace=True)
         # Build unify dataframe
         dataframe = pd.DataFrame(data={'Producto':name, 'Código':code, 'Descripción':features})
         dataframe = dataframe.map(str)
@@ -655,6 +684,7 @@ class Isdin(object):
             for line in lines[:-1]:
                 f.write(line + '\n')
             f.write(lines[-1])
+        f.close()
 
     def to_sql(self, dbname:str, tablename:str):
         df = self._prepare_to_llm()
@@ -770,6 +800,10 @@ class Loreal(object):
             features = pd.Series(features_kustom)
             features = features.apply(lambda s: reduce_dots(s))
 
+            # Reset index before building dataframe
+            name.reset_index(drop=True, inplace=True)
+            code.reset_index(drop=True, inplace=True)
+            features.reset_index(drop=True, inplace=True)
             # Build unify dataframe
             dataframe = pd.DataFrame(data={'Producto':name, 'Código':code, 'Descripción':features})
             dataframe = dataframe.map(str)
@@ -802,6 +836,7 @@ class Loreal(object):
             for line in lines[:-1]:
                 f.write(line + '\n')
             f.write(lines[-1])
+        f.close()
 
     def to_sql(self, dbname:str, tablename:str):
         df = self._prepare_to_llm()
@@ -900,6 +935,10 @@ class Revlon(object):
             features = pd.Series(features_kustom)
             features = features.apply(lambda s: reduce_dots(s))
 
+            # Reset index before building dataframe
+            name.reset_index(drop=True, inplace=True)
+            code.reset_index(drop=True, inplace=True)
+            features.reset_index(drop=True, inplace=True)
             # Build unify dataframe
             dataframe = pd.DataFrame(data={'Producto':name, 'Código':code, 'Descripción':features})
             dataframe = dataframe.map(str)
@@ -932,6 +971,7 @@ class Revlon(object):
             for line in lines[:-1]:
                 f.write(line + '\n')
             f.write(lines[-1])
+        f.close()
 
     def to_sql(self, dbname:str, tablename:str):
         df = self._prepare_to_llm()
@@ -1009,6 +1049,10 @@ class Vichy(object):
         features = pd.Series(features_kustom)
         features = features.apply(lambda s: reduce_dots(s))
 
+        # Reset index before building dataframe
+        name.reset_index(drop=True, inplace=True)
+        code.reset_index(drop=True, inplace=True)
+        features.reset_index(drop=True, inplace=True)
         # Build unify dataframe
         dataframe = pd.DataFrame(data={'Producto':name, 'Código':code, 'Descripción':features})
         dataframe = dataframe.map(str)
@@ -1039,6 +1083,7 @@ class Vichy(object):
             for line in lines[:-1]:
                 f.write(line + '\n')
             f.write(lines[-1])
+        f.close()
 
     def to_sql(self, dbname:str, tablename:str):
         df = self._prepare_to_llm()
@@ -1103,7 +1148,7 @@ class LRP(object):
         presentation = presentation.apply(lambda s: reduce_dots(s))
 
         no_features_columns = ["producto", "ean", "tamaño", "unidades", "keywords"]
-        features_columns = [col for col in columns if col not in no_features_columns]
+        features_columns = [col for col in df.columns if col not in no_features_columns]
         features = df[features_columns]
         features = features.apply(lambda row: row.to_list(), axis=1)
         features_kustom = []
@@ -1116,7 +1161,11 @@ class LRP(object):
             features_kustom.append(s)
         features = pd.Series(features_kustom)
         features = features.apply(lambda s: reduce_dots(s))
-
+        
+        # Reset index before building dataframe
+        name.reset_index(drop=True, inplace=True)
+        code.reset_index(drop=True, inplace=True)
+        features.reset_index(drop=True, inplace=True)
         # Build unify dataframe
         dataframe = pd.DataFrame(data={'Producto':name, 'Código':code, 'Descripción':features})
         dataframe = dataframe.map(str)
@@ -1143,6 +1192,7 @@ class LRP(object):
             for line in lines[:-1]:
                 f.write(line + '\n')
             f.write(lines[-1])
+        f.close()
 
     def to_sql(self, dbname:str, tablename:str):
         df = self._prepare_to_llm()
