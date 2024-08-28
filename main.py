@@ -45,10 +45,10 @@ def main(**kwargs):
         <div class="fixed-header">
             <div class="header-content">
                 <img src="data:image/jpeg;base64,{img_header}" class="header-image">
-                <p class="header-caption">{HEADER_CAPTION}</p>
             </div>
         </div>
         """, unsafe_allow_html=True)
+    st.markdown(f"""<div class="header-caption"><p>{HEADER_CAPTION}</p></div>""", unsafe_allow_html=True)
     st.markdown('<div class="chat-container">', unsafe_allow_html=True)
 
     # session state
