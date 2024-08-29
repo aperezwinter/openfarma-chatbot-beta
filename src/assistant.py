@@ -61,7 +61,7 @@ def init_logging(log_file: str):
     logger.addHandler(handler)
     return logger
 
-def stream_markdown(full_text, role, delay=0.005, chunk_size=1):
+def stream_markdown(full_text, role, delay=0.0075, chunk_size=1):
     container = st.empty()
     current_text = ""
     for i in range(0, len(full_text), chunk_size):

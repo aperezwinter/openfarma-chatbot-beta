@@ -40,6 +40,30 @@ def main(**kwargs):
 
     # Streamlit app configuration
     st.html(streamlit_style)
+    st.markdown(
+        """
+        <style>
+        h1 { font-size: 2em; }
+        h2 { font-size: 1.8em; }
+        h3 { font-size: 1.6em; }
+        h4 { font-size: 1.4em; }
+        h5 { font-size: 1.2em; }
+        h6 { font-size: 1em; }
+        strong { font-weight: bold; font-size: 20px; }
+        em { font-style: italic; font-size: 20px; }
+        ul li::marker, ol li::marker { font-size: 20px; }
+        ul li, ol li { font-size: 20px; }
+        ul * { font-size: 20px; }
+        ol * { font-size: 20px; }
+        li { font-size: 20px; }
+        li * { font-size: 20px; }
+        li span { font-size: 20px; }
+        span { font-size: 20px; }
+        p { font-size: 20px; }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
     img_header = encode_image(custom_image(IMAGE_LOGO))
     st.markdown(f"""
         <div class="fixed-header">

@@ -20,6 +20,7 @@ streamlit_style = """
             border-radius: 10px;
             padding: 15px;
             color: black;
+            font-size: 20px;  /* Ajusta el tamaño de la fuente */
             margin-left: auto;  /* Alinea los mensajes del bot a la derecha */
             position: relative;
             top: -13.5px;  /* Ajusta la posición vertical de los mensajes del usuario */
@@ -34,6 +35,7 @@ streamlit_style = """
             border-radius: 10px;
             padding: 15px;
             color: black;
+            font-size: 20px;
             margin-right: auto;  /* Alinea los mensajes del usuario a la izquierda */
             position: relative;
             top: -13.5px;  /* Ajusta la posición vertical de los mensajes del usuario */
@@ -78,6 +80,9 @@ streamlit_style = """
             text-align: center;
             width: 50%;
             margin: 60px auto 0 auto;
+        }
+        div[data-testid="stChatInput"] textarea {
+            font-size: 20px;  /* Ajusta el tamaño de la fuente aquí */
         }
         </style>
     """
