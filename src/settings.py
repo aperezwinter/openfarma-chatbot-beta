@@ -78,8 +78,9 @@ streamlit_style = """
             display: flex;
             justify-content: center;
             text-align: center;
-            width: 50%;
+            width: 70%;
             margin: 60px auto 0 auto;
+            font-size: 24px;
         }
         div[data-testid="stChatInput"] textarea {
             font-size: 20px;  /* Ajusta el tamaño de la fuente aquí */
