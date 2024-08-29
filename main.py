@@ -43,11 +43,11 @@ def main(**kwargs):
     st.markdown(
         """
         <style>
-        h1 { font-size: 2em; }
-        h2 { font-size: 1.8em; }
-        h3 { font-size: 1.6em; }
-        h4 { font-size: 1.4em; }
-        h5 { font-size: 1.2em; }
+        h1 { font-size: 2.5em; }
+        h2 { font-size: 2em; }
+        h3 { font-size: 1.75em; }
+        h4 { font-size: 1.5em; }
+        h5 { font-size: 1.25em; }
         h6 { font-size: 1em; }
         strong { font-weight: bold; font-size: 20px; }
         em { font-style: italic; font-size: 20px; }
