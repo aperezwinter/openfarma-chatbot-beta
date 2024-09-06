@@ -113,3 +113,38 @@ def encode_image(image):
     buffered = io.BytesIO()
     image.save(buffered, format="PNG")
     return base64.b64encode(buffered.getvalue()).decode()
+
+# Function to ensure bold and italic text is correctly processed in markdown
+def modify_text(text):
+    def process_match(match):
+        original_text = match.group(0)
+        if original_text.startswith('**'):
+            symbol = '**'
+            content = original_text[2:-2]
+        else:
+            symbol = '*'
+            content = original_text[1:-1]
+        parts = content.split(' ')
+        modified_content = ' '.join([f'{symbol}{part}{symbol}' for part in parts])
+        return modified_content
+
+    modified_text = re.sub(r'(\*\*.*?\*\*|\*.*?\*)', process_match, text)
+    return modified_text
+
+# Function to remove bold and italic text
+def remove_bold_italic(text):
+    def process_match(match):
+        original_text = match.group(0)
+        if original_text.startswith('**'):
+            content = original_text[2:-2]  # Remueve los símbolos de negrita
+        else:
+            content = original_text[1:-1]  # Remueve los símbolos de cursiva
+        parts = content.split(' ')  # Separa las palabras
+        modified_content = ' '.join(parts)  # Une las palabras de nuevo
+        return modified_content
+
+    lines = text.splitlines()
+    modified_lines = [re.sub(r'(\*\*.*?\*\*|\*.*?\*)', process_match, line) for line in lines]
+    modified_text = '\n'.join(modified_lines)
+    
+    return modified_text

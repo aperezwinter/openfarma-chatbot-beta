@@ -1,5 +1,6 @@
-import os, sys, time, uuid, pysqlite3
+import os, sys, time, json, uuid, pysqlite3
 import streamlit as st
+from openai import OpenAI
 from datetime import datetime
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
@@ -20,6 +21,49 @@ DATABASES = {
 REPO_PATH   = os.getcwd()                   # get current working directory
 LOG_PATH    = REPO_PATH + LOG_PATH_REMOTE   # log file absolute path
 GIF_PATH    = REPO_PATH + GIF_PATH          # gif file absolute path
+
+# Loading the vectordatabase
+embedding = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+smalldb = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=embedding)
+
+client = OpenAI(api_key=OPENAI_API_KEY)
+
+class Thread:
+    def __init__(self, client):
+        self.thread = client.beta.threads.create()
+
+    def get_num_messages(self, client):
+        msg = client.beta.threads.messages.list(thread_id=self.thread.id)
+        msg = [m.content[0].text.value for m in msg]
+        return len(msg)
+
+def get_tool_outputs(run):
+    tool_outputs = []; function_calls = []
+    if run.required_action is not None:
+        for tool in run.required_action.submit_tool_outputs.tool_calls:
+            function_calls.append({
+                "id": tool.id,
+                "name": tool.function.name,
+                "args": json.loads(tool.function.arguments)
+            })
+            print(f"Function: {tool.function.name}, Args: {tool.function.arguments}")
+    for function in function_calls:
+        if function["name"] == "extract_data":
+            tool_outputs.append({
+                "tool_call_id": function["id"], 
+                "output": extract_data(function["args"])})
+    return tool_outputs
+
+def extract_data(args):
+    str_args = str(args)
+    retrived_from_vdb = smalldb.similarity_search_with_score(str_args, k=30)
+    context = '\n'.join([retrived_from_vdb[i][0].page_content for i in range(30)])
+    output = f"""Contestar la pregunta a partir de los DATOS. Restringir la respuesta según la pregunta hecha. \
+                Si la pregunta o la respuesta tienen más de un producto, incluir una comparación entre todos ellos en la respuesta. \
+                Prohibido incluir precios en la respuesta. Prohibido incluir keywords en la respuesta. \n\
+                DATOS: {context}"""
+    output = re.sub(' +', ' ', output)
+    return output
 
 def main(**kwargs):
     logger = kwargs.get("logger") # get logger from kwargs
@@ -82,6 +126,10 @@ def main(**kwargs):
         st.session_state.messages.append({"role": "assistant", "content": initial_message})
         logger.info(f"[id:{st.session_state.session_id}] BOT: {initial_message}")
 
+    # create a new thread
+    if "thread" not in st.session_state:
+        st.session_state.thread = Thread(client)
+
     # conversation
     for message in st.session_state.messages:
         role = message["role"]; msg = message["content"]
@@ -109,14 +157,36 @@ def main(**kwargs):
             with st.chat_message(role, avatar=USER_AVATAR):
                 st.markdown(f'<div class="chat-message user-message">{prompt_input}</div>', unsafe_allow_html=True)
         st.write("")
+        ## Add user input to the thread
+        thread_id =  st.session_state.thread.thread.id
+        client.beta.threads.messages.create(thread_id=thread_id, role="user", content=prompt_input)
 
         # Get assistant response
-        k = 30 # number of results to retrieve
         container = st.empty()
         container.markdown(f'<img src="data:image/gif;base64,{encode_gif(GIF_PATH)}">', unsafe_allow_html=True)
-        retrived_from_vdb = smalldb.similarity_search_with_score(prompt_input, k=k)
-        context = '\n'.join([retrived_from_vdb[i][0].page_content for i in range(k)])
-        response = build_prompt(context, prompt_input)
+
+        messages_list = []
+        run = client.beta.threads.runs.create_and_poll(thread_id=thread_id, assistant_id=ASSISTANT_ID)
+        run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
+        while not (run.status in ["completed", "requires_action"]):
+            run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
+            time.sleep(0.1)
+
+        while run.status == "requires_action":
+            tool_outputs = get_tool_outputs(run)
+            run = client.beta.threads.runs.submit_tool_outputs(thread_id=thread_id, run_id=run.id, tool_outputs=tool_outputs)
+            run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
+            while not (run.status in ["completed", "requires_action"]):
+                run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
+                time.sleep(0.1)
+
+        if run.status == 'completed':
+            messages = client.beta.threads.messages.list(thread_id=thread_id)
+            for message in messages:
+                messages_list.append(message.content[0].text.value)
+            response = messages_list[0]
+        response = remove_bold_italic(response)
+        
         container.markdown('<div></div>', unsafe_allow_html=True)
         left, _ = st.columns(BOT_CHAT_COLUMNS)
         with left:

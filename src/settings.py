@@ -10,7 +10,7 @@ streamlit_style = """
         #MainMenu {visibility: hidden; height: 0%;}
         header {visibility: hidden; height: 0%;}
         footer {visibility: hidden; height: 0%;}
-
+        
         /* Estilo específico para los mensajes del bot */
         .bot-message {
             background-color: #FFFFFF;
