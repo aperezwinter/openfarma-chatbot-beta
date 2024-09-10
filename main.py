@@ -56,8 +56,8 @@ def get_tool_outputs(run):
 
 def extract_data(args):
     str_args = str(args)
-    retrived_from_vdb = smalldb.similarity_search_with_score(str_args, k=30)
-    context = '\n'.join([retrived_from_vdb[i][0].page_content for i in range(30)])
+    retrived_from_vdb = smalldb.similarity_search_with_score(str_args, k=10)
+    context = '\n'.join([retrived_from_vdb[i][0].page_content for i in range(10)])
     output = f"""Contestar la pregunta a partir de los DATOS. Restringir la respuesta según la pregunta hecha. \
                 Si la pregunta o la respuesta tienen más de un producto, incluir una comparación entre todos ellos en la respuesta. \
                 Prohibido incluir precios en la respuesta. Prohibido incluir keywords en la respuesta. \n\
@@ -79,8 +79,8 @@ def main(**kwargs):
         file.close()
 
     # Loading the vectordatabase
-    embedding = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
-    smalldb = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=embedding)
+    # embedding = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
+    # smalldb = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=embedding)
 
     # Streamlit app configuration
     st.html(streamlit_style)
