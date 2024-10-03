@@ -8,3 +8,4 @@ chroma-hnswlib==0.7.5
 chromadb==0.5.4
 pysqlite3-binary
 secure-smtplib
+streamlit==1.38.0
