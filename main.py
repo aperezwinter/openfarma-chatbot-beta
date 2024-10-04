@@ -1,9 +1,11 @@
-import os, sys, time, json, uuid, pysqlite3
+import os, sys, time, uuid, pysqlite3, json
 import streamlit as st
 from openai import OpenAI
 from datetime import datetime
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings
+from typing_extensions import override
+from openai import AssistantEventHandler
 from src.parameters import *
 from src.assistant import *
 from src.settings import *
@@ -26,17 +28,6 @@ GIF_PATH    = REPO_PATH + GIF_PATH          # gif file absolute path
 embedding = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
 smalldb = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=embedding)
 
-client = OpenAI(api_key=OPENAI_API_KEY)
-
-class Thread:
-    def __init__(self, client):
-        self.thread = client.beta.threads.create()
-
-    def get_num_messages(self, client):
-        msg = client.beta.threads.messages.list(thread_id=self.thread.id)
-        msg = [m.content[0].text.value for m in msg]
-        return len(msg)
-
 def get_tool_outputs(run):
     tool_outputs = []; function_calls = []
     if run.required_action is not None:
@@ -56,17 +47,73 @@ def get_tool_outputs(run):
 
 def extract_data(args):
     str_args = str(args)
-    retrived_from_vdb = smalldb.similarity_search_with_score(str_args, k=3)
-    context = '\n'.join([retrived_from_vdb[i][0].page_content for i in range(3)])
-    output = f"""Contestar la pregunta a partir de los DATOS. Restringir la respuesta según la pregunta hecha. \
-                Si la pregunta o la respuesta tienen más de un producto, incluir una comparación entre todos ellos en la respuesta. \
-                Prohibido incluir precios en la respuesta. Prohibido incluir keywords en la respuesta. \n\
-                DATOS: {context}"""
+    retrived_from_vdb = smalldb.similarity_search_with_score(str_args, k=8)
+    context = '\n'.join([retrived_from_vdb[i][0].page_content for i in range(8)])
+    output = f"Consulta: {str_args}\nContexto: {context}\nExtra: Responder sin precios \
+        ni keywords, realizar comparación entre productos si hay más de uno."
     output = re.sub(' +', ' ', output)
     return output
 
+class EventHandler(AssistantEventHandler):
+    
+    @override
+    def on_event(self, event):
+        # Retrieve events that are denoted with 'requires_action'
+        # since these will have our tool_calls
+        if event.event == 'thread.run.requires_action':
+            run_id = event.data.id  # Retrieve the run ID from the event data
+            st.session_state.requires_action_occurred = True
+            self.handle_requires_action(event.data, run_id)
+        elif event.event == 'thread.run.completed':
+            if st.session_state.requires_action_occurred:
+                st.session_state.requires_action_occurred = False
+                st.session_state.force_stream = False
+            else:
+                st.session_state.force_stream = True
+    
+    def handle_requires_action(self, data, run_id):
+        tool_outputs = []
+        function_calls = []
+
+        for tool in data.required_action.submit_tool_outputs.tool_calls:
+            function_calls.append({
+                "id": tool.id,
+                "name": tool.function.name,
+                "args": json.loads(tool.function.arguments)
+            })
+        for function in function_calls:
+            if function["name"] == "extract_data":
+                tool_outputs.append({
+                    "tool_call_id": function["id"], 
+                    "output": extract_data(function["args"])})
+        
+        # Submit all tool_outputs at the same time
+        self.submit_tool_outputs(tool_outputs, run_id)
+ 
+    def submit_tool_outputs(self, tool_outputs, run_id):
+        # Use the submit_tool_outputs_stream helper
+        with client.beta.threads.runs.submit_tool_outputs_stream(
+            thread_id=self.current_run.thread_id,
+            run_id=self.current_run.id,
+            tool_outputs=tool_outputs,
+            event_handler=EventHandler(),
+        ) as stream:
+            left, _ = st.columns(BOT_CHAT_COLUMNS)
+            with left:
+                with st.chat_message("assistant", avatar=BOT_AVATAR):
+                    container = st.empty()
+                    current_text = ""
+                    for text in stream.text_deltas:
+                        current_text += text
+                        container.markdown(f'<div class="chat-message bot-message bot-message ul">{current_text}</div>', unsafe_allow_html=True)
+                        time.sleep(0.05)
+                    #self.st_container.markdown(f'<div class="chat-message bot-message bot-message ul">{current_text}</div>', unsafe_allow_html=True)
+
+client = OpenAI(api_key=OPENAI_API_KEY)
+
 def main(**kwargs):
     logger = kwargs.get("logger") # get logger from kwargs
+    enlapsed_time = {}
     
     # Track session with a unique ID and last active time
     if 'session_id' not in st.session_state:
@@ -78,23 +125,23 @@ def main(**kwargs):
             st.session_state.num_lines = len(file.readlines())
         file.close()
 
-    # Loading the vectordatabase
-    # embedding = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
-    # smalldb = Chroma(persist_directory=PERSIST_DIRECTORY, embedding_function=embedding)
+    if 'requires_action_occurred' not in st.session_state:
+        st.session_state.requires_action_occurred = False
+    
+    if 'force_stream' not in st.session_state:
+        st.session_state.force_stream = False
 
     # Streamlit app configuration
     st.html(streamlit_style)
     st.markdown(
         """
         <style>
-        h1 { font-size: 2.5em; }
-        h2 { font-size: 2em; }
-        h3 { font-size: 1.75em; }
-        h4 { font-size: 1.5em; }
-        h5 { font-size: 1.25em; }
-        h6 { font-size: 1em; }
-        strong { font-weight: bold; font-size: 20px; }
-        em { font-style: italic; font-size: 20px; }
+        h1 { font-size: 3em; }
+        h2 { font-size: 2.5em; }
+        h3 { font-size: 2em; }
+        h4 { font-size: 1.75em; }
+        h5 { font-size: 1.5em; }
+        h6 { font-size: 1.25em; }
         ul li::marker, ol li::marker { font-size: 20px; }
         ul li, ol li { font-size: 20px; }
         ul * { font-size: 20px; }
@@ -116,7 +163,7 @@ def main(**kwargs):
             </div>
         </div>
         """, unsafe_allow_html=True)
-    st.markdown(f"""<div class="header-caption"><p>{HEADER_CAPTION}</p></div>""", unsafe_allow_html=True)
+    st.markdown(f"""<div class="header-caption">{HEADER_CAPTION}</div>""", unsafe_allow_html=True)
     st.markdown('<div class="chat-container">', unsafe_allow_html=True)
 
     # session state
@@ -125,10 +172,11 @@ def main(**kwargs):
         initial_message = "Hola, ¿en qué puedo ayudarte hoy?"
         st.session_state.messages.append({"role": "assistant", "content": initial_message})
         logger.info(f"[id:{st.session_state.session_id}] BOT: {initial_message}")
-
-    # create a new thread
+    
+    # Create thread for the assistant
     if "thread" not in st.session_state:
-        st.session_state.thread = Thread(client)
+        thread = client.beta.threads.create()
+        st.session_state.thread_id = thread.id
 
     # conversation
     for message in st.session_state.messages:
@@ -157,41 +205,46 @@ def main(**kwargs):
             with st.chat_message(role, avatar=USER_AVATAR):
                 st.markdown(f'<div class="chat-message user-message">{prompt_input}</div>', unsafe_allow_html=True)
         st.write("")
-        ## Add user input to the thread
-        thread_id =  st.session_state.thread.thread.id
-        client.beta.threads.messages.create(thread_id=thread_id, role="user", content=prompt_input)
+
+        # Add user input to the thread
+        client.beta.threads.messages.create(
+            thread_id=st.session_state.thread_id, 
+            role="user", 
+            content=prompt_input,
+        )
 
         # Get assistant response
-        container = st.empty()
-        container.markdown(f'<img src="data:image/gif;base64,{encode_gif(GIF_PATH)}">', unsafe_allow_html=True)
+        instructions = "Por favor responder la pregunta del usuario siguiendo la conversación en el Thread. \
+            Además, utilizar la información dada en los archivos. De ser necesario, repreguntar al usuario \
+                para obtener más información."
+        instructions = re.sub(' +', ' ', instructions)
+        with st.spinner("Generando respuesta..."):
+            start_time = time.time()
+            with client.beta.threads.runs.stream(
+                thread_id=thread.id,
+                assistant_id=ASSISTANT_ID,
+                event_handler=EventHandler()
+            ) as stream:
+                stream.until_done()
+            enlapsed_time["run_stream"] = time.time() - start_time
 
-        messages_list = []
-        run = client.beta.threads.runs.create_and_poll(thread_id=thread_id, assistant_id=ASSISTANT_ID)
-        run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
-        while not (run.status in ["completed", "requires_action"]):
-            run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
-            time.sleep(0.1)
+            for key, value in enlapsed_time.items():
+                print(f"{key}:\t{value:.2f} seconds")
+            
+            # Retrieve messages added by the assistant
+            messages = list(client.beta.threads.messages.list(thread_id=thread.id))
+            message_content = messages[0].content[0].text
+            annotations = message_content.annotations
+            for annotation in annotations:
+                message_content.value = message_content.value.replace(annotation.text, f"")
+            response = remove_bold_italic(message_content.value)
 
-        while run.status == "requires_action":
-            tool_outputs = get_tool_outputs(run)
-            run = client.beta.threads.runs.submit_tool_outputs(thread_id=thread_id, run_id=run.id, tool_outputs=tool_outputs)
-            run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
-            while not (run.status in ["completed", "requires_action"]):
-                run = client.beta.threads.runs.retrieve(thread_id=thread_id, run_id=run.id)
-                time.sleep(0.1)
-
-        if run.status == 'completed':
-            messages = client.beta.threads.messages.list(thread_id=thread_id)
-            for message in messages:
-                messages_list.append(message.content[0].text.value)
-            response = messages_list[0]
-        response = remove_bold_italic(response)
-        
-        container.markdown('<div></div>', unsafe_allow_html=True)
-        left, _ = st.columns(BOT_CHAT_COLUMNS)
-        with left:
-            with st.chat_message("assistant", avatar=BOT_AVATAR):
-                stream_markdown(response, role="assistant")
+        # Process and display assistant messages
+        if st.session_state.force_stream:
+            left, _ = st.columns(BOT_CHAT_COLUMNS)
+            with left:
+                with st.chat_message("assistant", avatar=BOT_AVATAR):
+                    stream_markdown(response, role="assistant")
         st.session_state.messages.append({"role": "assistant", "content": response})
         logger.info(f"[id:{st.session_state.session_id}] BOT: {response}")
         st.write("")
