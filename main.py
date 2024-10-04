@@ -174,7 +174,7 @@ def main(**kwargs):
         logger.info(f"[id:{st.session_state.session_id}] BOT: {initial_message}")
     
     # Create thread for the assistant
-    if "thread" not in st.session_state:
+    if "thread_id" not in st.session_state:
         thread = client.beta.threads.create()
         st.session_state.thread_id = thread.id
 
@@ -221,7 +221,7 @@ def main(**kwargs):
         with st.spinner("Generando respuesta..."):
             start_time = time.time()
             with client.beta.threads.runs.stream(
-                thread_id=thread.id,
+                thread_id=st.session_state.thread_id,
                 assistant_id=ASSISTANT_ID,
                 event_handler=EventHandler()
             ) as stream:
@@ -232,7 +232,7 @@ def main(**kwargs):
                 print(f"{key}:\t{value:.2f} seconds")
             
             # Retrieve messages added by the assistant
-            messages = list(client.beta.threads.messages.list(thread_id=thread.id))
+            messages = list(client.beta.threads.messages.list(thread_id=st.session_state.thread_id))
             message_content = messages[0].content[0].text
             annotations = message_content.annotations
             for annotation in annotations:
