@@ -1,4 +1,4 @@
-import os, sys, time, uuid, json, csv, pysqlite3
+import os, sys, time, uuid, json, csv
 import streamlit as st
 from openai import OpenAI
 from typing_extensions import override
@@ -10,18 +10,21 @@ from src.tools import *
 from src.settings import *
 from src.parameters import *
 
-# Trick to update sqlite
-__import__('pysqlite3')
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(PERSIST_DIRECTORY, 'db.sqlite3'),
-    }
-}
+LOCAL_FLAG = False
 
-REPO_PATH   = os.getcwd()                   # get current working directory
-LOG_PATH    = REPO_PATH + LOG_PATH_LOCAL    # log file absolute path
+if not LOCAL_FLAG:
+    import pysqlite3
+    # Trick to update sqlite
+    __import__('pysqlite3')
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(PERSIST_DIRECTORY, 'db.sqlite3'),
+        }
+    }
+
+REPO_PATH = os.getcwd()                   # get current working directory
 
 # Loading the vectordatabase
 embedding = OpenAIEmbeddings(api_key=OPENAI_API_KEY)
@@ -46,10 +49,11 @@ def searchByEan(file_name_csv: str, ean_list: list) -> list:
 def search_in_database(args):
     str_args = str(args)
     retrived_from_vdb = database.similarity_search_with_score(str_args, k=5)
-    ean_list = [retrived_from_vdb[i][0].metadata['EAN'] for i in range(5)]
-    data = searchByEan(REPO_PATH + "/database/stock.csv", ean_list)
+    #ean_list = [retrived_from_vdb[i][0].metadata['EAN'] for i in range(5)]
+    #data = searchByEan(REPO_PATH + "/database/stock.csv", ean_list)
     content = [retrived_from_vdb[i][0].page_content for i in range(5)]
-    context = '\n'.join([f"{content[i]} {data[i]}" for i in range(5)])
+    context = '\n'.join([f"{content[i]}" for i in range(5)])
+    #context = '\n'.join([f"{content[i]} {data[i]}" for i in range(5)])
     output = f"Contexto: {context}"
     return output
 

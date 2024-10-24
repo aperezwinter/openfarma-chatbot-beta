@@ -1,0 +1,17 @@
+2024-10-24 13:41:53 - DEBUG - Imagen del encabezado cargada desde figures/header_logo.png
+2024-10-24 13:41:53 - INFO - Encabezado configurado correctamente.
+2024-10-24 13:41:53 - INFO - [id:8bd11a7b-ceee-4a92-8c06-92e54900e11e] ASSISTANT: Hola, ¿en qué puedo ayudarte hoy?
+2024-10-24 13:41:53 - INFO - Imprimiendo toda la conversación almacenada.
+2024-10-24 13:41:53 - DEBUG - Mostrando mensaje del rol 'assistant'
+2024-10-24 13:41:53 - DEBUG - Mensaje del bot mostrado correctamente.
+2024-10-24 13:41:53 - INFO - Toda la conversación ha sido impresa correctamente con 1 mensajes.
+2024-10-24 13:42:12 - DEBUG - Imagen del encabezado cargada desde figures/header_logo.png
+2024-10-24 13:42:12 - INFO - Encabezado configurado correctamente.
+2024-10-24 13:42:12 - INFO - Imprimiendo toda la conversación almacenada.
+2024-10-24 13:42:12 - DEBUG - Mostrando mensaje del rol 'assistant'
+2024-10-24 13:42:12 - DEBUG - Mensaje del bot mostrado correctamente.
+2024-10-24 13:42:12 - INFO - Toda la conversación ha sido impresa correctamente con 1 mensajes.
+2024-10-24 13:42:12 - INFO - [id:8bd11a7b-ceee-4a92-8c06-92e54900e11e] USER: productos para el acné
+2024-10-24 13:42:12 - DEBUG - Mostrando mensaje del rol 'user'
+2024-10-24 13:42:12 - DEBUG - Mensaje del usuario mostrado correctamente.
+2024-10-24 13:42:53 - INFO - [id:8bd11a7b-ceee-4a92-8c06-92e54900e11e] ASSISTANT: Aquí te presento algunos productos que pueden ayudarte con el acné: 1. Probiac comprimidos 30+30 de Cepage: Este es un suplemento dietario a base de Probióticos y Vitaminas que ayuda a mejorar el acné en todas sus fases. Se toma un comprimido de Vitaminas, Zinc y Cobre (comprimido verde) y un comprimido de probióticos al día (comprimido blanco). Precio: $36000.00. Stock: 1. No tiene promoción. 2. Tratamiento para el acné Effaclar Duo [+] Anti acné 40ml de La Roche-Posay: Este tratamiento anti acné para pieles mixtas a grasas corrige el acné y sus marcas, granos, puntos negros y rebalancea el microbioma de la piel. Se aplica durante la mañana y /o noche en todo el rostro, luego de una adecuada higiene con Effaclar gel. 3. Acneiqué de Cepage: Esta crema-gel seborreguladora e hidratante está especialmente formulada para pieles oleosas y/o con tendencia al acné. Se aplica sobre la piel limpia y seca del rostro, cuello y escote. Precio: $29000.00. Stock: 4. No tiene promoción. 4. Acneiqué G...
