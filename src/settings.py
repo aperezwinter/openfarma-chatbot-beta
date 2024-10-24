@@ -42,7 +42,8 @@ streamlit_style = """
         }
 
         .main .block-container {
-            max-width: 80%;
+            width: 100% !important;
+            max-width: 80% !important;
             padding-top: 2rem;
             padding-right: 1rem;
             padding-left: 1rem;
@@ -85,5 +86,25 @@ streamlit_style = """
         div[data-testid="stChatInput"] textarea {
             font-size: 20px;  /* Ajusta el tamaño de la fuente aquí */
         }
+        </style>
+    """
+
+reinforces_style = """
+        <style>
+        h1 { font-size: 3em; }
+        h2 { font-size: 2.5em; }
+        h3 { font-size: 2em; }
+        h4 { font-size: 1.75em; }
+        h5 { font-size: 1.5em; }
+        h6 { font-size: 1.25em; }
+        ul li::marker, ol li::marker { font-size: 20px; }
+        ul li, ol li { font-size: 20px; }
+        ul * { font-size: 20px; }
+        ol * { font-size: 20px; }
+        li { font-size: 20px; }
+        li * { font-size: 20px; }
+        li span { font-size: 20px; }
+        span { font-size: 20px; }
+        p { font-size: 20px; }
         </style>
     """

@@ -1,0 +1,382 @@
+2024-10-21 01:29:30,609 - root - INFO - Iniciando el proceso de creación de la base de datos vectorial...
+2024-10-21 01:29:30,609 - root - INFO - Archivo añadido: /Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/pdf/sidus_manual_2024.pdf
+2024-10-21 01:29:30,609 - root - INFO - Archivo añadido: /Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/lrp.txt
+2024-10-21 01:29:30,609 - root - INFO - Archivo añadido: /Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/cetaphil.txt
+2024-10-21 01:29:30,609 - root - INFO - Archivo añadido: /Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/eximia.txt
+2024-10-21 01:29:30,609 - root - INFO - Archivo añadido: /Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/isdin.txt
+2024-10-21 01:29:30,609 - root - INFO - Archivo añadido: /Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/loreal.txt
+2024-10-21 01:29:30,609 - root - INFO - Archivo añadido: /Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/cepage.txt
+2024-10-21 01:29:30,609 - root - INFO - Archivo añadido: /Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/eucerin.txt
+2024-10-21 01:29:30,609 - root - INFO - Archivo añadido: /Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/vichy.txt
+2024-10-21 01:29:30,609 - root - INFO - Archivo añadido: /Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/revlon.txt
+2024-10-21 01:29:30,614 - httpx - DEBUG - load_ssl_context verify=True cert=None trust_env=True http2=False
+2024-10-21 01:29:30,615 - httpx - DEBUG - load_verify_locations cafile='/Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/venv/lib/python3.10/site-packages/certifi/cacert.pem'
+2024-10-21 01:29:30,622 - root - INFO - Cliente de OpenAI inicializado.
+2024-10-21 01:29:30,622 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/vector_stores', 'headers': {'OpenAI-Beta': 'assistants=v2'}, 'files': None, 'json_data': {'name': 'Vademecum_rag'}}
+2024-10-21 01:29:30,638 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/vector_stores
+2024-10-21 01:29:30,638 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-10-21 01:29:30,752 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103a916f0>
+2024-10-21 01:29:30,752 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x103a303c0> server_hostname='api.openai.com' timeout=5.0
+2024-10-21 01:29:30,783 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103a917b0>
+2024-10-21 01:29:30,784 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:30,784 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:30,784 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:30,784 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:30,784 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:31,515 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:31 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_507c141dcccf8bb7a9241d74ce1e20e6'), (b'openai-processing-ms', b'82'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=DuBwdemgAl_6xBkb50fEJEEQlW4wDpijpseNh4jl77M-1729484971-1.0.1.1-qCVo5MTytlmLtXkDVn4BDFnP_bFSHHfwAEAqYFl38bby9KsRjuQ6kCRGEPEaTGCN7tI68VhDrBOcrsVRtT4_hA; path=/; expires=Mon, 21-Oct-24 04:59:31 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=j5_7w1wKpbH7KNulh22zNGOWMCExv9zaTIFXQ4BfrZU-1729484971582-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e81cc6c3fab2b-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:31,517 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/vector_stores "HTTP/1.1 200 OK"
+2024-10-21 01:29:31,517 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:31,518 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:31,518 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:31,518 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:31,518 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/vector_stores "200 OK" Headers([('date', 'Mon, 21 Oct 2024 04:29:31 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('openai-version', '2020-10-01'), ('openai-organization', 'universidad-de-buenos-aires-9'), ('x-request-id', 'req_507c141dcccf8bb7a9241d74ce1e20e6'), ('openai-processing-ms', '82'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=DuBwdemgAl_6xBkb50fEJEEQlW4wDpijpseNh4jl77M-1729484971-1.0.1.1-qCVo5MTytlmLtXkDVn4BDFnP_bFSHHfwAEAqYFl38bby9KsRjuQ6kCRGEPEaTGCN7tI68VhDrBOcrsVRtT4_hA; path=/; expires=Mon, 21-Oct-24 04:59:31 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=j5_7w1wKpbH7KNulh22zNGOWMCExv9zaTIFXQ4BfrZU-1729484971582-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8d5e81cc6c3fab2b-EZE'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+2024-10-21 01:29:31,518 - openai._base_client - DEBUG - request_id: req_507c141dcccf8bb7a9241d74ce1e20e6
+2024-10-21 01:29:31,525 - root - INFO - Base de datos vectorial 'Vademecum_rag' creada.
+2024-10-21 01:29:31,527 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/files', 'headers': {'Content-Type': 'multipart/form-data'}, 'files': [('file', SerializationIterator(index=0, iterator=SerializationIterator(index=0, iterator=<_io.BufferedReader name='/Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/pdf/sidus_manual_2024.pdf'>)))], 'json_data': {'purpose': 'assistants'}}
+2024-10-21 01:29:31,528 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/files', 'headers': {'Content-Type': 'multipart/form-data'}, 'files': [('file', SerializationIterator(index=0, iterator=SerializationIterator(index=0, iterator=<_io.BufferedReader name='/Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/lrp.txt'>)))], 'json_data': {'purpose': 'assistants'}}
+2024-10-21 01:29:31,528 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/files', 'headers': {'Content-Type': 'multipart/form-data'}, 'files': [('file', SerializationIterator(index=0, iterator=SerializationIterator(index=0, iterator=<_io.BufferedReader name='/Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/cetaphil.txt'>)))], 'json_data': {'purpose': 'assistants'}}
+2024-10-21 01:29:31,529 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/files', 'headers': {'Content-Type': 'multipart/form-data'}, 'files': [('file', SerializationIterator(index=0, iterator=SerializationIterator(index=0, iterator=<_io.BufferedReader name='/Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/eximia.txt'>)))], 'json_data': {'purpose': 'assistants'}}
+2024-10-21 01:29:31,531 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/files', 'headers': {'Content-Type': 'multipart/form-data'}, 'files': [('file', SerializationIterator(index=0, iterator=SerializationIterator(index=0, iterator=<_io.BufferedReader name='/Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/isdin.txt'>)))], 'json_data': {'purpose': 'assistants'}}
+2024-10-21 01:29:31,536 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/files
+2024-10-21 01:29:31,537 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/files
+2024-10-21 01:29:31,539 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:31,539 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-10-21 01:29:31,541 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/files
+2024-10-21 01:29:31,541 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/files
+2024-10-21 01:29:31,544 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/files
+2024-10-21 01:29:31,544 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:31,544 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-10-21 01:29:31,544 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-10-21 01:29:31,544 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-10-21 01:29:31,544 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:31,545 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:31,545 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:31,564 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b11930>
+2024-10-21 01:29:31,564 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x103a303c0> server_hostname='api.openai.com' timeout=5.0
+2024-10-21 01:29:31,564 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b107f0>
+2024-10-21 01:29:31,564 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b13af0>
+2024-10-21 01:29:31,564 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x103a303c0> server_hostname='api.openai.com' timeout=5.0
+2024-10-21 01:29:31,564 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x103a303c0> server_hostname='api.openai.com' timeout=5.0
+2024-10-21 01:29:31,573 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b131c0>
+2024-10-21 01:29:31,573 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x103a303c0> server_hostname='api.openai.com' timeout=5.0
+2024-10-21 01:29:31,595 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b13ac0>
+2024-10-21 01:29:31,595 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:31,595 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b4c520>
+2024-10-21 01:29:31,595 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:31,595 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b4c040>
+2024-10-21 01:29:31,595 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:31,596 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:31,596 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:31,596 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:31,596 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:31,596 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:31,596 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:31,598 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:31,599 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:31,607 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b13130>
+2024-10-21 01:29:31,607 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:31,607 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:31,607 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:31,608 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:31,608 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:31,678 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:31,678 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:32,443 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:32 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_36f3d92da96cafcfb8a5537b7c96759f'), (b'openai-processing-ms', b'280'), (b'access-control-allow-origin', b'*'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e81d12bb9ab2b-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:32,444 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-10-21 01:29:32,444 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:32,445 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:32,445 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:32,445 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:32,445 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/files "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:32 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_36f3d92da96cafcfb8a5537b7c96759f', 'openai-processing-ms': '280', 'access-control-allow-origin': '*', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e81d12bb9ab2b-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:32,445 - openai._base_client - DEBUG - request_id: req_36f3d92da96cafcfb8a5537b7c96759f
+2024-10-21 01:29:32,616 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:32 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_003e43598382f552d6bfeb7273a60fa2'), (b'openai-processing-ms', b'316'), (b'access-control-allow-origin', b'*'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e81d178d4ab2c-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:32,618 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-10-21 01:29:32,618 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:32,618 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:32,619 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:32,619 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:32,619 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/files "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:32 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_003e43598382f552d6bfeb7273a60fa2', 'openai-processing-ms': '316', 'access-control-allow-origin': '*', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e81d178d4ab2c-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:32,619 - openai._base_client - DEBUG - request_id: req_003e43598382f552d6bfeb7273a60fa2
+2024-10-21 01:29:32,645 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:32 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_09557182420e3a13f785ce45988cecda'), (b'openai-processing-ms', b'274'), (b'access-control-allow-origin', b'*'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e81d18a7eab20-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:32,646 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-10-21 01:29:32,646 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:32,647 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:32,647 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:32,647 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:32,647 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/files "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:32 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_09557182420e3a13f785ce45988cecda', 'openai-processing-ms': '274', 'access-control-allow-origin': '*', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e81d18a7eab20-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:32,648 - openai._base_client - DEBUG - request_id: req_09557182420e3a13f785ce45988cecda
+2024-10-21 01:29:33,090 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:33 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_14acb129969f0a92d919568711efc4e4'), (b'openai-processing-ms', b'347'), (b'access-control-allow-origin', b'*'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e81d17e41ab38-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:33,091 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-10-21 01:29:33,092 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:33,092 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:33,092 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:33,092 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:33,093 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/files "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:33 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_14acb129969f0a92d919568711efc4e4', 'openai-processing-ms': '347', 'access-control-allow-origin': '*', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e81d17e41ab38-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:33,093 - openai._base_client - DEBUG - request_id: req_14acb129969f0a92d919568711efc4e4
+2024-10-21 01:29:35,066 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:35,066 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:38,070 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:38 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_c5e5f69681df5890c98d12dc44a9ea1b'), (b'openai-processing-ms', b'619'), (b'access-control-allow-origin', b'*'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e81d17d03ab2f-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:38,071 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-10-21 01:29:38,071 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:38,071 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:38,071 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:38,072 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:38,072 - httpcore.connection - DEBUG - close.started
+2024-10-21 01:29:38,072 - httpcore.connection - DEBUG - close.complete
+2024-10-21 01:29:38,072 - httpcore.connection - DEBUG - close.started
+2024-10-21 01:29:38,072 - httpcore.connection - DEBUG - close.complete
+2024-10-21 01:29:38,072 - httpcore.connection - DEBUG - close.started
+2024-10-21 01:29:38,073 - httpcore.connection - DEBUG - close.complete
+2024-10-21 01:29:38,073 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/files "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:38 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_c5e5f69681df5890c98d12dc44a9ea1b', 'openai-processing-ms': '619', 'access-control-allow-origin': '*', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e81d17d03ab2f-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:38,073 - openai._base_client - DEBUG - request_id: req_c5e5f69681df5890c98d12dc44a9ea1b
+2024-10-21 01:29:38,075 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches', 'headers': {'OpenAI-Beta': 'assistants=v2'}, 'files': None, 'json_data': {'file_ids': ['file-bz4kBW1gghYNvcwE0upqpRPk', 'file-mrq6D1jedjyJdTd8HVrUq0Kn', 'file-zVub3VmqDHHmg9ogDZQoMicj', 'file-MstlaHdczCBLPUmjOefijjRQ', 'file-5eEpHJa0mipncL4ysGLjoJfH']}}
+2024-10-21 01:29:38,076 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches
+2024-10-21 01:29:38,076 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:38,076 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:38,076 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:38,076 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:38,076 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:38,786 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:38 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_cc63727c5f5b35c5b9c8743b6a9f4893'), (b'openai-processing-ms', b'367'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e81f9fd9dab2f-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:38,787 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches "HTTP/1.1 200 OK"
+2024-10-21 01:29:38,787 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:38,788 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:38,788 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:38,788 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:38,788 - httpcore.connection - DEBUG - close.started
+2024-10-21 01:29:38,789 - httpcore.connection - DEBUG - close.complete
+2024-10-21 01:29:38,789 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:38 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_cc63727c5f5b35c5b9c8743b6a9f4893', 'openai-processing-ms': '367', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e81f9fd9dab2f-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:38,789 - openai._base_client - DEBUG - request_id: req_cc63727c5f5b35c5b9c8743b6a9f4893
+2024-10-21 01:29:38,790 - openai._base_client - DEBUG - Request options: {'method': 'get', 'url': '/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7', 'headers': {'OpenAI-Beta': 'assistants=v2', 'X-Stainless-Poll-Helper': 'true', 'X-Stainless-Raw-Response': 'true'}}
+2024-10-21 01:29:38,791 - openai._base_client - DEBUG - Sending HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7
+2024-10-21 01:29:38,791 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:38,792 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:38,792 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-10-21 01:29:38,792 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:38,792 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:39,502 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:39 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_bb05f9e25761aa9638faf3f0d4e5f114'), (b'openai-processing-ms', b'88'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e81fe6d12ab2f-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:39,503 - httpx - INFO - HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7 "HTTP/1.1 200 OK"
+2024-10-21 01:29:39,504 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-10-21 01:29:39,504 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:39,504 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:39,504 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:39,505 - openai._base_client - DEBUG - HTTP Response: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7 "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:39 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_bb05f9e25761aa9638faf3f0d4e5f114', 'openai-processing-ms': '88', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e81fe6d12ab2f-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:39,505 - openai._base_client - DEBUG - request_id: req_bb05f9e25761aa9638faf3f0d4e5f114
+2024-10-21 01:29:40,509 - openai._base_client - DEBUG - Request options: {'method': 'get', 'url': '/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7', 'headers': {'OpenAI-Beta': 'assistants=v2', 'X-Stainless-Poll-Helper': 'true', 'X-Stainless-Raw-Response': 'true'}}
+2024-10-21 01:29:40,511 - openai._base_client - DEBUG - Sending HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7
+2024-10-21 01:29:40,511 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:40,512 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:40,512 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-10-21 01:29:40,512 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:40,512 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:41,149 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:41 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_dae4e4734f716dac8c777c0bbc40e579'), (b'openai-processing-ms', b'96'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e82092e11ab2f-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:41,150 - httpx - INFO - HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7 "HTTP/1.1 200 OK"
+2024-10-21 01:29:41,150 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-10-21 01:29:41,151 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:41,151 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:41,151 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:41,151 - openai._base_client - DEBUG - HTTP Response: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7 "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:41 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_dae4e4734f716dac8c777c0bbc40e579', 'openai-processing-ms': '96', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e82092e11ab2f-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:41,152 - openai._base_client - DEBUG - request_id: req_dae4e4734f716dac8c777c0bbc40e579
+2024-10-21 01:29:42,158 - openai._base_client - DEBUG - Request options: {'method': 'get', 'url': '/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7', 'headers': {'OpenAI-Beta': 'assistants=v2', 'X-Stainless-Poll-Helper': 'true', 'X-Stainless-Raw-Response': 'true'}}
+2024-10-21 01:29:42,160 - openai._base_client - DEBUG - Sending HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7
+2024-10-21 01:29:42,161 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:42,162 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:42,162 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-10-21 01:29:42,162 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:42,162 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:42,429 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:42 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_64a625b503379121f619b86f05147c7e'), (b'openai-processing-ms', b'65'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e82137ea8ab2f-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:42,430 - httpx - INFO - HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7 "HTTP/1.1 200 OK"
+2024-10-21 01:29:42,430 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-10-21 01:29:42,430 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:42,431 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:42,431 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:42,431 - openai._base_client - DEBUG - HTTP Response: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7 "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:42 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_64a625b503379121f619b86f05147c7e', 'openai-processing-ms': '65', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e82137ea8ab2f-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:42,431 - openai._base_client - DEBUG - request_id: req_64a625b503379121f619b86f05147c7e
+2024-10-21 01:29:43,437 - openai._base_client - DEBUG - Request options: {'method': 'get', 'url': '/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7', 'headers': {'OpenAI-Beta': 'assistants=v2', 'X-Stainless-Poll-Helper': 'true', 'X-Stainless-Raw-Response': 'true'}}
+2024-10-21 01:29:43,439 - openai._base_client - DEBUG - Sending HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7
+2024-10-21 01:29:43,439 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:43,440 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:43,440 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-10-21 01:29:43,440 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:43,440 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:43,803 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:43 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_ee03caa19be78decb30309731b7e0d99'), (b'openai-processing-ms', b'78'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e821b7a77ab2f-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:43,804 - httpx - INFO - HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7 "HTTP/1.1 200 OK"
+2024-10-21 01:29:43,804 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-10-21 01:29:43,804 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:43,805 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:43,805 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:43,805 - openai._base_client - DEBUG - HTTP Response: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_819f5342ac40414a938f65fbc546edf7 "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:43 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_ee03caa19be78decb30309731b7e0d99', 'openai-processing-ms': '78', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e821b7a77ab2f-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:43,805 - openai._base_client - DEBUG - request_id: req_ee03caa19be78decb30309731b7e0d99
+2024-10-21 01:29:43,806 - root - INFO - Estado de subida: completed. 5/5 archivos a la base vectorizada Vademecum_rag.
+2024-10-21 01:29:43,809 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/files', 'headers': {'Content-Type': 'multipart/form-data'}, 'files': [('file', SerializationIterator(index=0, iterator=SerializationIterator(index=0, iterator=<_io.BufferedReader name='/Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/loreal.txt'>)))], 'json_data': {'purpose': 'assistants'}}
+2024-10-21 01:29:43,809 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/files', 'headers': {'Content-Type': 'multipart/form-data'}, 'files': [('file', SerializationIterator(index=0, iterator=SerializationIterator(index=0, iterator=<_io.BufferedReader name='/Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/cepage.txt'>)))], 'json_data': {'purpose': 'assistants'}}
+2024-10-21 01:29:43,810 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/files', 'headers': {'Content-Type': 'multipart/form-data'}, 'files': [('file', SerializationIterator(index=0, iterator=SerializationIterator(index=0, iterator=<_io.BufferedReader name='/Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/eucerin.txt'>)))], 'json_data': {'purpose': 'assistants'}}
+2024-10-21 01:29:43,811 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/files', 'headers': {'Content-Type': 'multipart/form-data'}, 'files': [('file', SerializationIterator(index=0, iterator=SerializationIterator(index=0, iterator=<_io.BufferedReader name='/Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/vichy.txt'>)))], 'json_data': {'purpose': 'assistants'}}
+2024-10-21 01:29:43,813 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/files', 'headers': {'Content-Type': 'multipart/form-data'}, 'files': [('file', SerializationIterator(index=0, iterator=SerializationIterator(index=0, iterator=<_io.BufferedReader name='/Users/aperezwinter/Desktop/quantit/orien_chatbot_apw/database/rag/txt/revlon.txt'>)))], 'json_data': {'purpose': 'assistants'}}
+2024-10-21 01:29:43,813 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/files
+2024-10-21 01:29:43,813 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/files
+2024-10-21 01:29:43,814 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/files
+2024-10-21 01:29:43,814 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/files
+2024-10-21 01:29:43,815 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/files
+2024-10-21 01:29:43,815 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:43,815 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-10-21 01:29:43,815 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-10-21 01:29:43,815 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-10-21 01:29:43,816 - httpcore.connection - DEBUG - connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+2024-10-21 01:29:43,816 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:43,816 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:43,842 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b664d0>
+2024-10-21 01:29:43,842 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b65570>
+2024-10-21 01:29:43,842 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x103a303c0> server_hostname='api.openai.com' timeout=5.0
+2024-10-21 01:29:43,842 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b652a0>
+2024-10-21 01:29:43,842 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x103a303c0> server_hostname='api.openai.com' timeout=5.0
+2024-10-21 01:29:43,843 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x103a303c0> server_hostname='api.openai.com' timeout=5.0
+2024-10-21 01:29:43,843 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b679a0>
+2024-10-21 01:29:43,843 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x103a303c0> server_hostname='api.openai.com' timeout=5.0
+2024-10-21 01:29:43,876 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b67940>
+2024-10-21 01:29:43,876 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b66470>
+2024-10-21 01:29:43,876 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b661a0>
+2024-10-21 01:29:43,876 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:43,877 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:43,877 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:43,877 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:43,877 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:43,878 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:43,878 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:43,878 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:43,878 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:43,884 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x103b64bb0>
+2024-10-21 01:29:43,884 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:43,884 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:43,884 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:43,885 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:43,885 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:43,910 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:43,910 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:43,958 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:43,958 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:43,995 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:43,996 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:44,011 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:44,011 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:44,623 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:44 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_dab7fd555bc6696e7cb11fea4a602a76'), (b'openai-processing-ms', b'335'), (b'access-control-allow-origin', b'*'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e821e4890ab25-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:44,625 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-10-21 01:29:44,625 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:44,625 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:44,625 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:44,625 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:44,626 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/files "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:44 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_dab7fd555bc6696e7cb11fea4a602a76', 'openai-processing-ms': '335', 'access-control-allow-origin': '*', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e821e4890ab25-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:44,626 - openai._base_client - DEBUG - request_id: req_dab7fd555bc6696e7cb11fea4a602a76
+2024-10-21 01:29:44,628 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:44 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_025c7c724cd7f437dd6172eeded509c5'), (b'openai-processing-ms', b'263'), (b'access-control-allow-origin', b'*'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e821e3eb2ab29-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:44,628 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-10-21 01:29:44,629 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:44,629 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:44,629 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:44,629 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:44,629 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/files "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:44 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_025c7c724cd7f437dd6172eeded509c5', 'openai-processing-ms': '263', 'access-control-allow-origin': '*', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e821e3eb2ab29-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:44,629 - openai._base_client - DEBUG - request_id: req_025c7c724cd7f437dd6172eeded509c5
+2024-10-21 01:29:44,642 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:44 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_5361d5ae5be15ef1ffbcb772b52801c7'), (b'openai-processing-ms', b'381'), (b'access-control-allow-origin', b'*'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e821e3fccab23-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:44,643 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-10-21 01:29:44,643 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:44,643 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:44,643 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:44,643 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:44,644 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/files "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:44 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_5361d5ae5be15ef1ffbcb772b52801c7', 'openai-processing-ms': '381', 'access-control-allow-origin': '*', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e821e3fccab23-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:44,644 - openai._base_client - DEBUG - request_id: req_5361d5ae5be15ef1ffbcb772b52801c7
+2024-10-21 01:29:45,646 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:45 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_52e7ab16dc66ab3b3f1eee2aac269d33'), (b'openai-processing-ms', b'351'), (b'access-control-allow-origin', b'*'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e821e394aab31-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:45,647 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-10-21 01:29:45,647 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:45,647 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:45,648 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:45,648 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:45,648 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/files "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:45 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_52e7ab16dc66ab3b3f1eee2aac269d33', 'openai-processing-ms': '351', 'access-control-allow-origin': '*', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e821e394aab31-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:45,648 - openai._base_client - DEBUG - request_id: req_52e7ab16dc66ab3b3f1eee2aac269d33
+2024-10-21 01:29:45,760 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:45 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_81546f1d78781901b9b68a5693e81ec6'), (b'openai-processing-ms', b'407'), (b'access-control-allow-origin', b'*'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e821ddda4ab2f-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:45,761 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/files "HTTP/1.1 200 OK"
+2024-10-21 01:29:45,762 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:45,762 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:45,762 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:45,762 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:45,763 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/files "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:45 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_81546f1d78781901b9b68a5693e81ec6', 'openai-processing-ms': '407', 'access-control-allow-origin': '*', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e821ddda4ab2f-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:45,763 - openai._base_client - DEBUG - request_id: req_81546f1d78781901b9b68a5693e81ec6
+2024-10-21 01:29:45,765 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches', 'headers': {'OpenAI-Beta': 'assistants=v2'}, 'files': None, 'json_data': {'file_ids': ['file-RFlu5DCyWyYhEyd0zcA5zy0R', 'file-g4xNFL10uqgqyUYr2hkdjXwn', 'file-KaPfulgkjmnu0QiJE4i0rMt7', 'file-mUHN5u2fg8u4A44ncyl4Cumm', 'file-dUoQSAJM2olRDcp1YJv4JP8P']}}
+2024-10-21 01:29:45,766 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches
+2024-10-21 01:29:45,766 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:45,767 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:45,767 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2024-10-21 01:29:45,767 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:45,767 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2024-10-21 01:29:46,559 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:46 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_490286fac359d303101acadc76097907'), (b'openai-processing-ms', b'506'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e822a0821ab2f-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:46,561 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches "HTTP/1.1 200 OK"
+2024-10-21 01:29:46,561 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2024-10-21 01:29:46,561 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:46,562 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:46,562 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:46,562 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:46 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_490286fac359d303101acadc76097907', 'openai-processing-ms': '506', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e822a0821ab2f-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:46,562 - openai._base_client - DEBUG - request_id: req_490286fac359d303101acadc76097907
+2024-10-21 01:29:46,564 - openai._base_client - DEBUG - Request options: {'method': 'get', 'url': '/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_b5247e60e00e4fafaa0133f129ec1397', 'headers': {'OpenAI-Beta': 'assistants=v2', 'X-Stainless-Poll-Helper': 'true', 'X-Stainless-Raw-Response': 'true'}}
+2024-10-21 01:29:46,565 - openai._base_client - DEBUG - Sending HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_b5247e60e00e4fafaa0133f129ec1397
+2024-10-21 01:29:46,565 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:46,566 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:46,566 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-10-21 01:29:46,566 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:46,566 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:50,871 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:50 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_b5ac6942e9cb83800cc41c578df8d890'), (b'openai-processing-ms', b'4037'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e822f0868ab2f-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:50,872 - httpx - INFO - HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_b5247e60e00e4fafaa0133f129ec1397 "HTTP/1.1 200 OK"
+2024-10-21 01:29:50,873 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-10-21 01:29:50,873 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:50,874 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:50,874 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:50,874 - httpcore.connection - DEBUG - close.started
+2024-10-21 01:29:50,875 - httpcore.connection - DEBUG - close.complete
+2024-10-21 01:29:50,875 - httpcore.connection - DEBUG - close.started
+2024-10-21 01:29:50,875 - httpcore.connection - DEBUG - close.complete
+2024-10-21 01:29:50,875 - httpcore.connection - DEBUG - close.started
+2024-10-21 01:29:50,875 - httpcore.connection - DEBUG - close.complete
+2024-10-21 01:29:50,875 - httpcore.connection - DEBUG - close.started
+2024-10-21 01:29:50,875 - httpcore.connection - DEBUG - close.complete
+2024-10-21 01:29:50,875 - openai._base_client - DEBUG - HTTP Response: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_b5247e60e00e4fafaa0133f129ec1397 "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:50 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_b5ac6942e9cb83800cc41c578df8d890', 'openai-processing-ms': '4037', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e822f0868ab2f-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:50,875 - openai._base_client - DEBUG - request_id: req_b5ac6942e9cb83800cc41c578df8d890
+2024-10-21 01:29:51,882 - openai._base_client - DEBUG - Request options: {'method': 'get', 'url': '/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_b5247e60e00e4fafaa0133f129ec1397', 'headers': {'OpenAI-Beta': 'assistants=v2', 'X-Stainless-Poll-Helper': 'true', 'X-Stainless-Raw-Response': 'true'}}
+2024-10-21 01:29:51,884 - openai._base_client - DEBUG - Sending HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_b5247e60e00e4fafaa0133f129ec1397
+2024-10-21 01:29:51,885 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:51,885 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:51,885 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-10-21 01:29:51,885 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:51,886 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:52,171 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:52 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_4788dd05c408fa2a74e7d4de25b066b9'), (b'openai-processing-ms', b'83'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e82503c10ab2f-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:52,172 - httpx - INFO - HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_b5247e60e00e4fafaa0133f129ec1397 "HTTP/1.1 200 OK"
+2024-10-21 01:29:52,172 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-10-21 01:29:52,173 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:52,173 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:52,173 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:52,173 - openai._base_client - DEBUG - HTTP Response: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_b5247e60e00e4fafaa0133f129ec1397 "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:52 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_4788dd05c408fa2a74e7d4de25b066b9', 'openai-processing-ms': '83', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e82503c10ab2f-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:52,173 - openai._base_client - DEBUG - request_id: req_4788dd05c408fa2a74e7d4de25b066b9
+2024-10-21 01:29:53,176 - openai._base_client - DEBUG - Request options: {'method': 'get', 'url': '/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_b5247e60e00e4fafaa0133f129ec1397', 'headers': {'OpenAI-Beta': 'assistants=v2', 'X-Stainless-Poll-Helper': 'true', 'X-Stainless-Raw-Response': 'true'}}
+2024-10-21 01:29:53,178 - openai._base_client - DEBUG - Sending HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_b5247e60e00e4fafaa0133f129ec1397
+2024-10-21 01:29:53,179 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:53,180 - httpcore.http11 - DEBUG - send_request_headers.complete
+2024-10-21 01:29:53,180 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'GET']>
+2024-10-21 01:29:53,180 - httpcore.http11 - DEBUG - send_request_body.complete
+2024-10-21 01:29:53,180 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'GET']>
+2024-10-21 01:29:53,532 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Mon, 21 Oct 2024 04:29:53 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'openai-version', b'2020-10-01'), (b'openai-organization', b'universidad-de-buenos-aires-9'), (b'x-request-id', b'req_7c1c3948e040a57308e1f272233b419b'), (b'openai-processing-ms', b'93'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'CF-Cache-Status', b'DYNAMIC'), (b'X-Content-Type-Options', b'nosniff'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8d5e825859b1ab2f-EZE'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2024-10-21 01:29:53,533 - httpx - INFO - HTTP Request: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_b5247e60e00e4fafaa0133f129ec1397 "HTTP/1.1 200 OK"
+2024-10-21 01:29:53,533 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'GET']>
+2024-10-21 01:29:53,534 - httpcore.http11 - DEBUG - receive_response_body.complete
+2024-10-21 01:29:53,534 - httpcore.http11 - DEBUG - response_closed.started
+2024-10-21 01:29:53,534 - httpcore.http11 - DEBUG - response_closed.complete
+2024-10-21 01:29:53,534 - openai._base_client - DEBUG - HTTP Response: GET https://api.openai.com/v1/vector_stores/vs_be39QiSVqw9bb9xtKl1mbSlK/file_batches/vsfb_b5247e60e00e4fafaa0133f129ec1397 "200 OK" Headers({'date': 'Mon, 21 Oct 2024 04:29:53 GMT', 'content-type': 'application/json', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'openai-version': '2020-10-01', 'openai-organization': 'universidad-de-buenos-aires-9', 'x-request-id': 'req_7c1c3948e040a57308e1f272233b419b', 'openai-processing-ms': '93', 'strict-transport-security': 'max-age=31536000; includeSubDomains; preload', 'cf-cache-status': 'DYNAMIC', 'x-content-type-options': 'nosniff', 'server': 'cloudflare', 'cf-ray': '8d5e825859b1ab2f-EZE', 'content-encoding': 'gzip', 'alt-svc': 'h3=":443"; ma=86400'})
+2024-10-21 01:29:53,535 - openai._base_client - DEBUG - request_id: req_7c1c3948e040a57308e1f272233b419b
+2024-10-21 01:29:53,536 - root - INFO - Estado de subida: completed. 5/5 archivos a la base vectorizada Vademecum_rag.
+2024-10-21 01:29:53,536 - root - INFO - Proceso de creación de la base de datos vectorial finalizado.
+2024-10-21 01:29:53,706 - httpcore.connection - DEBUG - close.started
+2024-10-21 01:29:53,707 - httpcore.connection - DEBUG - close.complete
+2024-10-22 10:10:52 - INFO - Documentos para la marca 'Cepage' añadidos desde el archivo cepage.csv.
+2024-10-22 10:10:52 - INFO - Documentos para la marca 'Cetaphil' añadidos desde el archivo cetaphil.csv.
+2024-10-22 10:10:52 - INFO - Documentos para la marca 'Eucerin' añadidos desde el archivo eucerin.csv.
+2024-10-22 10:10:52 - INFO - Documentos para la marca 'Eximia' añadidos desde el archivo eximia.csv.
+2024-10-22 10:10:52 - INFO - Documentos para la marca 'Isdin' añadidos desde el archivo isdin.csv.
+2024-10-22 10:10:52 - INFO - Documentos para la marca 'Loreal' añadidos desde el archivo loreal.csv.
+2024-10-22 10:10:52 - INFO - Documentos para la marca 'La Roche-Posay' añadidos desde el archivo lrp.csv.
+2024-10-22 10:10:52 - INFO - Documentos para la marca 'Revlon' añadidos desde el archivo revlon.csv.
+2024-10-22 10:10:52 - INFO - Documentos para la marca 'Vichy' añadidos desde el archivo vichy.csv.
+2024-10-22 10:11:23 - INFO - Embeddings completados. Base de datos Chroma lista con 2389 documentos.
